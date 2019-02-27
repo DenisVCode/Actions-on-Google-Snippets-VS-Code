@@ -1,0 +1,121 @@
+{
+  "aog": {
+    "prefix": "aog",
+    "scope": "typescript",
+    "body": [
+      "import * as functions from \"firebase-functions\";",
+      "import { dialogflow, DialogflowConversation, } from \"actions-on-google\";",
+      "const app: any = dialogflow();",
+      "",
+      "app.intent(\"Default Welcome Intent\", (conv: DialogflowConversation) => {",
+      "\tconv.ask(`Welcome!`);",
+      "});\n",
+      "app.intent('${1:intent_name}', (conv: DialogflowConversation) => {",
+      "\t$0",
+      "});\n",
+      "export const fulfillment = functions.https.onRequest(app);"
+    ],
+    "description": "Creates required AoG scaffold for Firebase Cloud Functions"
+  },
+  "intent": {
+    "prefix": "intent",
+    "scope": "typescript",
+    "body": [
+      "app.intent('${1:intent_name}', (conv: DialogflowConversation) => {",
+      "\t$0",
+      "});"
+    ],
+    "description": "Creates intent handler"
+  },
+  "intent1": {
+    "prefix": "intent1",
+    "scope": "typescript",
+    "body": [
+      "app.intent('${1:intent_name}', (conv: DialogflowConversation, { ${2:param} }: { ${2:param}: string }) => {",
+      "\t$0",
+      "});"
+    ],
+    "description": "Creates intent handler with 1 string parameter"
+  },
+  "card": {
+    "prefix": "card",
+    "scope": "typescript,javascript",
+    "body": [
+      "conv.ask('${6:Here is the card}')",
+      "conv.ask(new BasicCard({",
+      "\ttitle: ${1:title},",
+      "\tsubtitle: ${2:subtitle},",
+      "\ttext: ${3:text},",
+      "\timage: new Image({",
+      "\t\turl: ${4:url},",
+      "\t\talt: ${5:alt},",
+      "\t}),",
+      "}));"
+    ],
+    "description": "Creates a basic card with an image."
+  },
+  "helper_permission": {
+    "prefix": "hpermission",
+    "scope": "typescript",
+    "body": [
+      "app.intent('${1:intent_name}', (conv: DialogflowConversation) => {",
+      "\tconst options = {",
+      "\t\tcontext: '${2:context}',",
+      "\t\tpermissions: ['${3|NAME,DEVICE_PRECISE_LOCATION,DEVICE_COARSE_LOCATION|}']",
+      "\t};",
+      "\tconv.ask(new Permission(options));",
+      "});"
+    ],
+    "description": "Get name, precise location or coarse location using a helper."
+  },
+  "helper_date": {
+    "prefix": "htime",
+    "scope": "typescript",
+    "body": [
+      "app.intent('${1:intent_name}', (conv: DialogflowConversation) => {",
+      "\tconst options = {",
+      "\t\tprompts: {",
+      "\t\t\tinitial: '${2:When do you want to have the meeting?}',",
+      "\t\t\tdate: '${3:What day would you like?}'",
+      "\t\t\ttime: '${4:What time?}'",
+      "\t\t},",
+      "\t};",
+      "\tconv.ask(new DateTime(options))",
+      "});"
+    ],
+    "description": "Get a date and time using a helper"
+  },
+  "helper_place": {
+    "prefix": "hplace",
+    "scope": "typescript",
+    "body": [
+      "app.intent('${1:intent_name}', (conv: DialogflowConversation) => {",
+      "\tconst options = {",
+      "\t\tcontext: '${2:To find a place}'",
+      "\t\tprompt: '${3:What place should I use?}'",
+      "\t};",
+      "\tconv.ask(new Place(options))",
+      "});"
+    ],
+    "description": "Get a place using a helper"
+  },
+  "helper_confirmation": {
+    "prefix": "hconfirmation",
+    "scope": "typescript",
+    "body": [
+      "app.intent('${1:intent_name}', (conv: DialogflowConversation) => {",
+      "\tconv.ask(new Confirmation('${2:Is that okay?}'))",
+      "});\n",
+      "app.intent('${1:intent_name}_confirmation', (conv: DialogflowConversation, params: any, confirmationGranted: any) => {",
+      "\treturn conv.ask(confirmationGranted ? '${3:Yes}' : '${4:No}');",
+      "});"
+    ],
+    "description": "Get a confirmation using a helper"
+  },
+  "storage": {
+    "prefix": "storage",
+    "scope": "typescript,javascript",
+    "body": ["conv.user.storage.$0"],
+    "description": "Get user storage object where you can save data between conversations."
+  }
+}

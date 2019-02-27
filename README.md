@@ -32,6 +32,11 @@ Create new intent with parameter:
 
 ## Release Notes
 
-### 1.0.0
+### 0.0.2
+
+Separated JavaScript and TypeScript to different files
+
+### 0.0.1
 
 Initial release of Actions on Google Snippets
+

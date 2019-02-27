@@ -19,12 +19,16 @@
         "snippets": [
             {
                 "language": "typescript",
-                "path": "./snippets/snippets.json"
+                "path": "./snippets/typescript.json"
             },
             {
                 "language": "javascript",
-                "path": "./snippets/snippets.json"
+                "path": "./snippets/javascript.json"
             }
         ]
-    }
+    },
+    "repository": {
+        "url": "https://github.com/DenisVCode/Actions-on-Google-Snippets-VS-Code"
+    },
+    "license": "MIT"
 }
