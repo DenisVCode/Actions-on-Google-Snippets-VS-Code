@@ -2,7 +2,7 @@
     "name": "actions-on-google-snippets",
     "displayName": "Actions on Google snippets",
     "description": "Collection of snippets for Actions on Google",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "author": {
         "name": "Denis V.",
         "email": "code.denis@gmail.com",
