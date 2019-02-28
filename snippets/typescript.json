@@ -114,8 +114,25 @@
   },
   "storage": {
     "prefix": "storage",
-    "scope": "typescript,javascript",
+    "scope": "typescript",
     "body": ["conv.user.storage.$0"],
     "description": "Get user storage object where you can save data between conversations."
+  },
+  "media-response": {
+    "prefix": "media",
+    "scope": "typescript",
+    "body": [
+      "conv.ask('${1:Here is the media you asked for!}');",
+      "conv.ask(new MediaObject({",
+      "\tname: ${2:name}",
+      "\turl: ${3:url}",
+      "\tdescription: ${4:description}",
+      "\ticon: new Image({",
+      "\t\turl: ${5:url}",
+      "\t\talt: ${2:name}",
+      "\t}),",
+      "}));"
+    ],
+    "description": "Creates a media response"
   }
 }

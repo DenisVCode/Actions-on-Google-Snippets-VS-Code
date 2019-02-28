@@ -32,6 +32,10 @@ Create new intent with parameter:
 
 ## Release Notes
 
+### 0.0.3
+
+Added image snippet
+
 ### 0.0.2
 
 Separated JavaScript and TypeScript to different files
