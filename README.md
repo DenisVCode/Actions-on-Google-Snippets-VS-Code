@@ -2,6 +2,8 @@
 
 Snippets for Actions on Google platform to help you with creating new amazing Actions!
 
+Find it on [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=DenisV.actions-on-google-snippets)!
+
 ## Features
 
 All snippets are avaliable in JavaScript and TypeScript.
@@ -19,6 +21,13 @@ Table of avaliable snippets:
 | hplace| Creates helper for getting place|
 | hconfirmation| Creates helper for getting confirmation|
 | storage| Shortcut for getting conv.user.storage object |
+| media | Creates a media response |
+| table | Creates a Table response |
+| ssml | Returns a <speak></speak> tags |
+| sbreak | Returns a SSML break tag with paramaters setup |
+| sayas | Returns a SSML say-as tag with paramaters setup |
+| saydate | Returns a SSML say-as tag with date paramaters setup |
+
 
 Create scaffold for new Actions on Google project:
 
