@@ -134,5 +134,49 @@
       "}));"
     ],
     "description": "Creates a media response"
+  },
+  "table": {
+    "prefix": "table",
+    "scope": "typescript",
+    "body": [
+      "conv.ask('${1:Here is the table!}')",
+      "conv.ask(new Table({",
+      "\tdividers: true,",
+      "\tcolumns: ['${2:header 1}', '${3:header 2}'],",
+      "\trows: [",
+      "\t\t['${4:1st row item}', '${5:1st row item}'],",
+      "\t\t['${6:2st row item}', '${7:2st row item}'],",
+      "\t],",
+      "}))"
+    ],
+    "description": "Creates a table response"
+  },
+  "ssml": {
+    "prefix": "ssml",
+    "scope": "typescript",
+    "body": ["<speak>$0</speak>"],
+    "description": "Returns <speak></speak>"
+  },
+  "ssml-sbreak": {
+    "prefix": "sbreak",
+    "scope": "typescript",
+    "body": [
+      "<break time='${1:200ms}' strength='${2|x-weak,weak,medium,strong,x-strong|}'/>"
+    ],
+    "description": "Returns SSML defined break with options for setting time and strength"
+  },
+  "ssml-say-as": {
+    "prefix": "sayas",
+    "scope": "typescript",
+    "body": [
+      "<say-as interpret-as='${1|cardinal,ordinal,characters,fraction,expletive,unit,verbatim|}'>$2</say-as>"
+    ],
+    "description": ""
+  },
+  "ssml-say-as-date": {
+    "prefix": "saydate",
+    "scope": "typescript",
+    "body": ["<say-as interpret-as='date' format='${1:yyyymmdd}'>$2</say-as>"],
+    "description": ""
   }
 }
